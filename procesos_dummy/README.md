@@ -4,7 +4,16 @@ This set of experiments consisted in executing a "dummy" step which didn't have 
 
 Each dummy step only consumes alerts and immediatly produces the same content.
 
+# Table of Contents
+1. [Experiment 1: Default](#experiment1)
+2. [Experiment 2: Kafka with more power](#experiment2)
+3. [Experiment 3: Flush with every message](#experiment3)
+4. [Experiment 4: 16 partitions](#experiment4)
+5. [Experiment 5: Pipeline replication](#experiment5)
+6. [Experiment 6: Script](#experiment6)
+7. [Experiment 7: Script with serialization](#experiment7)
 
+<a id='experiment1'></a>
 ## Experiment 1: Default
 With this experiment we tried to set a reference point for comparison with later experiments.
 
@@ -28,6 +37,9 @@ A rate of 11.200 alerts/30s was set in the producer which was able to reach it f
 * Producer rate: 11.200 (at first, then decayed)
 
 
+---
+
+<a id='experiment2'></a>
 ## Experiment 2: Kafka with more power
 Given that the production rate wasn't stable, we tried new configurations within kafka in terms of hardware as well as service properties. In particular, we increased the number of threads that handle network requests with the `num.network.threads` parameter.
 ### Configuration
@@ -47,6 +59,11 @@ A rate of 16.000 alerts every 30 seconds was set in the producer being maintaine
 ### Observations
 The increase in `num.network.threads` allowed to stabilize the producer rate.
 
+
+
+---
+
+<a id='experiment3'></a>
 ## Experiment 3: Flush with every message
 The objective with this experiment was to test the incidence of the flush operation in the producer throughput.
 
@@ -89,6 +106,12 @@ Together this three parameters control the frequency that the producer produces 
 * number of alerts: 1.2 million
 ### Observations
 With this and further experiments we see that flush frequency is not as important in throughput in our case, but it is recommended to flush at the end or at least not so frequently.
+
+
+
+---
+
+<a id='experiment4'></a>
 ## Experiment 4: 16 partitions
 
 ### Configuration
@@ -116,6 +139,12 @@ num.partitions=16
 * number of alerts: 1.2 million
 ### Observations
 Lowering the number of partitions and processes also decreased throughput.
+
+
+
+---
+
+<a id='experiment5'></a>
 ## Experiment 5: Pipeline replication
 In this experiment we tried to emulate the real environment in which the production pipeline would be run.
 
@@ -160,6 +189,11 @@ In this experiment we tried to emulate the real environment in which the product
 ### Observations
 We checked that throughput does not decrease linearly as the number of topics increase and that kafka service configurations put up with that rate.
 
+
+
+---
+
+<a id='experiment6'></a>
 ## Experiment 6: Script
 With this experiment we tried to simulate the behaviour of the dummy step, but outside of APF. We only used a python script that runs 32 processes in parallel consuming alerts from a source topic and producing to a target topic.
 ### Configuration
@@ -193,9 +227,14 @@ In this picture the script was producing to the topic named `xmatch_exp` and is 
 
 Las tasas obtenidas levantan sospecha sobre el paso dummy ya que se alcanzan una taza mucho más alta que la obtenida con el paso dummy. Además al procesar a una mayor tasa, pudimos establecer párametros en el producer que permitieran consumir ese volúmen sin errores.
 
+
+
+---
+
+<a id='experiment7'></a>
 ## Experiment 7: Script with serialization
 With this experiment we tried to do the same as in experiment 6, but with AVRO serialization (using fastavro) for messages as it is done in the real steps.
-### Configuración
+### Configuration
 
 #### Hardware:
 ##### PC:
