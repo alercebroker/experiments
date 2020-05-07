@@ -1,14 +1,14 @@
 # Procesos Pipeline
 
-## Procesamiento de la Pipeline:
+## Running Steps:
 
-Four steps and their respective machine
+There are four steps with their respective machines:
 1. Rate Producer -> 52.86.26.221
 2. Correction -> 34.238.238.229
 3. Features -> 3.229.237.125
 4. Metricas -> 35.169.179.140 
 
-To run a step get into the virtual machine and run the following command on the `experiment` directory:
+To run a step get into their respective virtual machine and run the following command on the `experiment` directory:
     
     docker-compose up --scale <service_name>=<n>
     
@@ -26,23 +26,44 @@ starts producing.
 To modify the consumers and producers, go to the `docker-compose.yml` file on the `experiment` directory and edit the
 `CONSUMER_TOPICS` and `PRODUCER_TOPICS` values.
 
-## Experiments results
+## Experiments
 
 Experiments mainly focused on `correction` and `features`, so it was testest with diferent combinations of steps
 and machines.
 
-### Correction + Features: 32 particiones:
+### Experiment 1-a:
 
-#### Database: 4 cores and 32 GB RAM.
+Experiment for correction and features steps.
 
-    Reesults:
-        -Input: 1.5 K/s - 100 MB/s
-        -Correction: 400/s - 20 MB/s
-        -Features: 80/s - 150 KB/s
+#### Hardware:
+* Cores: 4 
+* RAM: 32 GB
 
-#### Database: 16 cores and 64 GB RAM.
+#### Results:
+* Input: 1.5 K/s - 100 MB/s
+* Correction: 400/s - 20 MB/s
+* Features: 80/s - 150 KB/s
 
-    Results:
-        -Input: 1.5 K/s - 40 MB/s
-        -Correction: 800/s - 40  MB/s
-        -Features: 130/s - 180 KB/s
+### Experiment 1-b:
+
+Experiment for correction and features steps.
+
+#### Hardware:
+* Cores: 16
+* RAM: 64 GB
+
+#### Results:
+* Input: 1.5 K/s - 40 MB/s
+* Correction: 800/s - 40  MB/s
+* Features: 130/s - 180 KB/s
+
+### Experiment 2-a:
+### Experiment 2-b:
+### Experiment 3-a:
+### Experiment 3-b:
+### Experiment 4-a:
+### Experiment 4-b:
+### Experiment 5-a:
+### Experiment 5-b:
+### Experiment 6-a:
+### Experiment 6-b:
