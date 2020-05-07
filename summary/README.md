@@ -29,9 +29,10 @@ Some tests were done using *dummy* steps which are APF steps that only consume a
 On the other hand, some tests were done using a python *script* that only consumed and produced messages with no processing or functionality involved.
 
 The results showed that:
-* Kafka hardware and configuration that we tested is enough for our desired throughput
-* Our best result achieved 4.200 alerts per second using the script
-* APF steps are still slower than the script for the following reason
+* **Hardware**: Kafka hardware and configuration that we tested is enough for our desired throughput
+* **Best throughput**: Our best result achieved 4.200 alerts per second using the script
+* **Profiling**: Serializing and deserializing AVRO takes around 37.5% of the execution time in a dummy step
+* **APF**: steps are still slower than the script for the following reason
 
 ### APF Consumer implementation
 We discovered that APF's consumer implementation produces a bottleneck in the steps execution because it uses up to all memory available if the processing in the step is not fast enough.
@@ -40,13 +41,14 @@ Basically, the consumer would keep consuming without caring if the messages cons
 
 ### Step experiments
 With profiling we could check the following facts, but keep in mind performance is cut due to the consumer issue:
-* Elasticsearch was performing slow, and causing a bottleneck
-* Disabling Elasticsearch improved performance
-* In **Correction** the most time is spent querying the database
+* **Elasticsearch**: was performing slow, and causing a bottleneck
+    * Disabling Elasticsearch improved performance
+* **Correction**: the most time is spent querying the database
     * Some improvements to this were made by increasing Postgresql hardware
-* In **Features** the most time is spent actually computing features
+* **Features**: the most time is spent actually computing features
 
 ### Tweaks to Postgresql
+poner aca lo más importante de los cambios en el hardware
 
 ## TODO
 There are still a lot of testing to be done. Some of the most important are:
