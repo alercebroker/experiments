@@ -1,4 +1,4 @@
-# Procesos Pipeline
+# Pipeline steps
 
 ## Running Steps:
 
@@ -33,7 +33,7 @@ and machines.
 
 ### Experiment 1-a:
 
-Experiment for correction and feature steps with 32 partitions.
+Experiment for `correction` and `feature` steps with 32 partitions.
 
 #### Hardware:
 * Cores: 4 
@@ -46,7 +46,7 @@ Experiment for correction and feature steps with 32 partitions.
 
 ### Experiment 1-b:
 
-Experiment for correction and feature steps with 32 partitions.
+Experiment for `correction` and `feature` steps with 32 partitions.
 
 #### Hardware:
 * Cores: 16
@@ -59,40 +59,40 @@ Experiment for correction and feature steps with 32 partitions.
 
 ### Experiment 2-a:
 
-Experiment for feature step with 32 partitions.
+Experiment for `feature` step with 32 partitions.
 
 ### Experiment 2-b:
 
-Experiment for feature step with 32 partitions.
+Experiment for `feature` step with 32 partitions.
 
 ### Experiment 3-a:
 
-Experiment for correction and feature steps with 64 partitions.
+Experiment for `correction` and `feature` steps with 64 partitions.
 
 ### Experiment 3-b:
 
-Experiment for correction and feature steps with 64 partitions.
+Experiment for `correction` and `feature` steps with 64 partitions.
 
 ### Experiment 4-a:
 
-Experiment for feature step with 64 partitions.
+Experiment for `feature` step with 64 partitions.
 
 ### Experiment 4-b:
 
-Experiment for feature step with 64 partitions.
+Experiment for `feature` step with 64 partitions.
 
 ### Experiment 5-a:
 
-Experiment for correction and feature steps with 96 partitions.
+Experiment for `correction` and `feature` steps with 96 partitions.
 
 ### Experiment 5-b:
 
-Experiment for correction and feature steps with 96 partitions.
+Experiment for `correction` and `feature` steps with 96 partitions.
 
 ### Experiment 6-a:
 
-Experiment for feature step with 96 partitions.
+Experiment for `feature` step with 96 partitions.
 
 ### Experiment 6-b:
 
-Experiment for feature step with 96 partitions.
+Experiment for `feature` step with 96 partitions.
