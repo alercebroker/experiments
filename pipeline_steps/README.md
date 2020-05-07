@@ -19,6 +19,10 @@ To follow the step logs, run:
 
     docker-compose logs --follow <service_name>
     
+To stop the steps, run:
+    
+    docker-compose down
+
 To verify wich step is up, run `docker-compose ps`.
 
 Every step has a consumer and a procuer. They run on inverse order to generate the consumer before the previous step 
