@@ -39,7 +39,7 @@ service kafka restart
 ### Configuration
 
 #### Hardware:
-##### Kafka:
+##### Kafka server:
 * Cores: 4
 * RAM: 8 GB
 ##### Postgres:
@@ -68,7 +68,7 @@ num.partitions=32
 ### Configuration
 
 #### Hardware:
-##### Kafka:
+##### Kafka server:
 * Cores: 16
 * RAM: 64 GB
 ##### Postgres:
