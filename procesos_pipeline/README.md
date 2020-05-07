@@ -2,11 +2,11 @@
 
 ## Running Steps:
 
-There are four steps with their respective machines:
-1. Rate Producer -> 52.86.26.221
-2. Correction -> 34.238.238.229
-3. Features -> 3.229.237.125
-4. Metricas -> 35.169.179.140 
+There are four steps with their respective machines IPs:
+1. Rate Producer, 52.86.26.221
+2. Correction, 34.238.238.229
+3. Features, 3.229.237.125
+4. Metrics, 35.169.179.140 
 
 To run a step get into their respective virtual machine and run the following command on the `experiment` directory:
     
