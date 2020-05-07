@@ -1,22 +1,23 @@
 # Kafka
-Este set de experimentos, consistio principalmente en probar, modificar y optimizar configuraciones propias de KAFKA para obtener mejores resultados tanto en el throughput como en los tiempos de procesamiento de los distintos pasos de la Pipeline. 
+This set of experiments mainly consists of testing, modifying and optimizing KAFKA own configurations to obtain better results both in performance and in the processing times of the different pipeline steps. 
 ## 1 - File Descriptor
 ## 2 - Ram Cache
-## 3 - Aumento de discos
-### Descripción: 
-En el inicio de las pruebas, la instancia de EC2 solo tenia un disco (root), para escalar, creamos 3 discos, las cuales fueron montadas en 3 carpetas correspondientes. Con esto logramos segmentar la W/R de los topicos logrando mejores velocidades de R/W.
-### Pasos para la implementación
-1 - Agregar 3 nuevos volumenes en AWS <br/>
-2 - Asociarlos a la instancia donde esta kafka <br/>
-3 - Los discos se deben montar de la siguiente forma: 
-- lsblk - ver particiones <br/>
-- sudo mkfs -t xfs /dev/xxx - formatiar la partición <br/>
-- sudo mkdir /data - crear la carpeta donde montaremos la partición <br/>
-- sudo mount /dev/xxx /data - montar el volumen <br/>
-4 - Cambiar arhivo de configuración de Kafka <br/>
-- Debemos buscar y editar el archivo de configuración de kafka (Server.properties) <br/>
-- Editar la linea log-dirs agregando los nuevos path, separandolos por (,) <br/>
-5 Dar permisos de escritura y lectura al usuario donde corre Kafka. <br/>
-6
+## 3 - increased disks
+### Description: 
+At the beginning of the tests, the EC2 instance only had one disk (root), to scale, we created 3 disks, which were mounted in 3 corresponding folders. With this we managed to segment the W / R of the topics achieving better R / W speeds.
+### Steps for implementation
+1 - Add 3 new volumes on AWS <br/>
+2 - Associate them to the kafka instance <br/>
+3 - The disks must be mounted as follows: 
+- lsblk - see partitions <br/>
+- sudo mkfs -t xfs /dev/xxx - format the partition <br/>
+- sudo mkdir /data - create the folder where we will mount the partition <br/>
+- sudo mount /dev/xxx /data - mount volume <br/>
+4 - Change Kafka configuration file <br/>
+- We must find and edit the kafka configuration file (Server.properties) <br/>
+- Edit the log-dirs line adding the new paths, separating them by (,) <br/>
+5 Give write and read permissions to the user where Kafka runs. <br/>
+- sudo chown ec2-user:ec2-user -R /path/data <br/>
+6 restart kafka service <br/>
 
 ## 4 - Configuraciones de Server.Properties
