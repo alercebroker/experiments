@@ -25,10 +25,11 @@ To stop the steps, run:
 
 To verify wich step is up, run `docker-compose ps`.
 
-Every step has a consumer and a procuer. They run on inverse order to generate the consumer before the previous step 
+Every step has a consumer and a producer. They run on inverse order to generate the consumer before the previous step 
 starts producing.
 To modify the consumers and producers, go to the `docker-compose.yml` file on the `experiment` directory and edit the
-`CONSUMER_TOPICS` and `PRODUCER_TOPICS` values.
+`CONSUMER_TOPICS` and `PRODUCER_TOPICS` values. Everytime you run an experiment you should change the
+`CONSUMER_GROUP_ID` value.
 
 ## Experiments
 
@@ -43,6 +44,25 @@ Experiment for `correction` and `feature` steps with 32 partitions.
 * Cores: 4 
 * RAM: 32 GB
 
+#### Docker-Compose Settings
+Rate Producer:
+    
+    CONSUMER_TOPICS=historic-data
+    CONSUMER_GROUP_ID=input_32_cf
+    PRODUCER_TOPICS=input_32_cf
+
+Correction:
+
+    CONSUMER_TOPICS=input_32_cf
+    CONSUMER_GROUP_ID=correction_32_cf
+    PRODUCER_TOPICS=correction_32_cf
+
+Features:
+
+    CONSUMER_TOPICS=correction_32_cf
+    CONSUMER_GROUP_ID=features_32_cf
+    PRODUCER_TOPICS=features_32_cf
+
 #### Results:
 * Input: 1.5 K/s - 100 MB/s
 * Correction: 400/s - 20 MB/s
@@ -55,6 +75,25 @@ Experiment for `correction` and `feature` steps with 32 partitions.
 #### Hardware:
 * Cores: 16
 * RAM: 64 GB
+
+#### Docker-Compose Settings
+Rate Producer:
+    
+    CONSUMER_TOPICS=historic-data
+    CONSUMER_GROUP_ID=input_32_cf
+    PRODUCER_TOPICS=input_32_cf
+
+Correction:
+
+    CONSUMER_TOPICS=input_32_cf
+    CONSUMER_GROUP_ID=correction_32_cf
+    PRODUCER_TOPICS=correction_32_cf
+
+Features:
+
+    CONSUMER_TOPICS=correction_32_cf
+    CONSUMER_GROUP_ID=features_32_cf
+    PRODUCER_TOPICS=features_32_cf
 
 #### Results:
 * Input: 1.5 K/s - 40 MB/s
