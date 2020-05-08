@@ -8,6 +8,8 @@ Edit the /etc/security/limits.conf and add the lines:
 *     hard   nofile  128000
 ```
 ## 2 - Ram Cache
+Kafka only used up to 8 GB, the rest is heavily used in cache.
+
 ## 3 - increased disks
 We use 4 disks in one node.
 We change the configuration parameter en server.propierties:
