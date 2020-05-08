@@ -204,7 +204,7 @@ vim prometheus.yml
 ```
 Save and exit.
 
-Now restart the prometheus service.
+* Now restart the prometheus service.
 ```
 systemctl restart prometheus
 ```
