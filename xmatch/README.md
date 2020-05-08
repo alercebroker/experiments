@@ -34,8 +34,8 @@ Is needed to repeat this experiments with more alerts and tunning spark
 ## Experiment 2: Script Wrapper using CDS, Simbad
 In this experiment we develop a script composed of:  KafkaConsumer, KafkaProducer, AlertAccumulator and a XmatchClient that runned with 32 processes. We request CDS Xmatch API by means of a wrapper using Pandas DataFrames.
 ### Configuration
-#### Hardware: 32 CPU - 128 GB RAM
-##### Kafka
-#### Kafka Service:
-### Results 3000 alerts/second
-### Observations
+#### Hardware: 
+Instance with 32 CPU - 128 GB RAM
+### Results  
+3000 alerts/second
+
