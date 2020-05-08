@@ -48,7 +48,8 @@ With profiling we could check the following facts, but keep in mind performance 
 * **Features**: the most time is spent actually computing features
 
 ### Tweaks to Postgresql
-poner aca lo más importante de los cambios en el hardware
+
+The main change that we made was to change the AWS instance from **4 CPU - 32 GB** to **16 CPU - 128 GB**.
 
 ## TODO
 There are still a lot of testing to be done. Some of the most important are:
