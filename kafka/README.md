@@ -72,8 +72,8 @@ num.partitions=32
 * Cores: 16
 * RAM: 64 GB
 ##### Postgres:
-* Cores: 4
-* RAM: 32 GB
+* Cores: 16
+* RAM: 128 GB
 
 #### Kafka settings:
 ```
