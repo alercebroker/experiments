@@ -1,8 +1,19 @@
 # Kafka
 This set of experiments mainly consists of testing, modifying and optimizing KAFKA own configurations to obtain better results both in performance and in the processing times of the different pipeline steps. 
 ## 1 - File Descriptor
+Number of max. file descriptors from 1024 to 128000
+Edit the /etc/security/limits.conf and add the lines:
+```
+*     soft   nofile  128000
+*     hard   nofile  128000
+```
 ## 2 - Ram Cache
 ## 3 - increased disks
+We use 4 disks in one node.
+We change the configuration parameter en server.propierties:
+```
+log.dirs=/var/lig/kafka-logs/a,/var/lig/kafka-logs/b,/var/lig/kafka-logs/c,/var/lig/kafka-logs/c
+```
 ### Description: 
 At the beginning of the tests, the EC2 instance only had one disk (root), to scale, we created 3 disks, which were mounted in 3 corresponding folders. With this we managed to segment the W / R of the topics achieving better R / W speeds.
 
