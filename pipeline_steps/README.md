@@ -31,6 +31,15 @@ To modify the consumers and producers, go to the `docker-compose.yml` file on th
 `CONSUMER_TOPICS` and `PRODUCER_TOPICS` values. Everytime you run an experiment you should change the
 `CONSUMER_GROUP_ID` value.
 
+The machines used for the experiments are the following:
+
+* m5a.4xlarge, 16 cores - 64 GB
+* m5a.8xlarge, 32 cores - 128 GB
+* m5a.16xlarge, 64 cores - 256 GB 
+* m5a.24xlarge, 96 cores - 337 GB
+* r5a.xlarge, 4 cores - 32 GB
+* r5a.4xlarge, 16 cores - 128 GB
+
 ## Experiments
 
 Experiments mainly focused on `correction` and `features`, so it was testest with diferent combinations of steps
@@ -41,6 +50,7 @@ and machines.
 Experiment for `correction` and `feature` steps with 32 partitions.
 
 #### Hardware:
+* Machine: r5a.xlarge
 * Cores: 4 
 * RAM: 32 GB
 
@@ -73,6 +83,7 @@ Features:
 Experiment for `correction` and `feature` steps with 32 partitions.
 
 #### Hardware:
+* Machine: m5a.4xlarge
 * Cores: 16
 * RAM: 64 GB
 
