@@ -32,12 +32,6 @@ The results showed that:
 * **Hardware**: Kafka hardware and configuration that we tested is enough for our desired throughput
 * **Best throughput**: Our best result achieved 4.200 alerts per second using the script
 * **Profiling**: Serializing and deserializing AVRO takes around 37.5% of the execution time in a dummy step
-* **APF**: steps are still slower than the script for the following reason
-
-### APF Consumer implementation
-We discovered that APF's consumer implementation produces a bottleneck in the steps execution because it uses up to all memory available if the processing in the step is not fast enough.
-
-Basically, the consumer would keep consuming without caring if the messages consumed are actually processed in the step. So while the step is processing an alert, the consumer keeps consuming at high rates, filling the RAM, and causing the step to process even slower.
 
 ### Step experiments
 With profiling we could check the following facts, but keep in mind performance is cut due to the consumer issue:
@@ -53,6 +47,5 @@ The main change that we made was to change the AWS instance from **4 CPU - 32 GB
 
 ## TODO
 There are still a lot of testing to be done. Some of the most important are:
-* Fix APF consumer
 * Run all steps again (maybe dummies too)
 * Determine optimal hardware for each step
